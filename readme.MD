@@ -1,3 +1,4 @@
+TEST
 # Jacoco coverage in multi-module maven projects
 
 Simple dummy-project that demonstrates how to configure the jacoco code coverage 
