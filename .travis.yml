@@ -1,0 +1,24 @@
+sudo: false
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+      - realpath
+  sonarcloud:
+    organization: datadriven
+    token:
+      secure: $SONAR_TOKEN
+
+install: true
+script: mvn clean install failsafe:integration-test sonar:sonar -Dsonar.login=$SONAR_TOKEN
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
